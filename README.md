@@ -53,8 +53,9 @@ A complete game contains 12 rounds. Winning in the Empereur camp gives 1 point, 
 - LocalStorage
 - Git and GitHub
 
-## Project Structure
+## 📁 Project Structure
 
+```text
 empereur-citoyen-esclave/
 │
 ├── index.html
@@ -77,6 +78,8 @@ empereur-citoyen-esclave/
 ├── package.json
 ├── package-lock.json
 └── README.md
+```
+
 
 
 ## Getting Started
