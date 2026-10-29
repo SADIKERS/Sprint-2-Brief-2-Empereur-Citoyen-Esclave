@@ -55,31 +55,28 @@ A complete game contains 12 rounds. Winning in the Empereur camp gives 1 point, 
 
 ## Project Structure
 
-## Project Structure
-
-```text
 empereur-citoyen-esclave/
+│
 ├── index.html
+├── players.html
+├── game.html
+├── history.html
+│
 ├── src/
 │   ├── main.js
-│   ├── game.js
 │   ├── players.js
+│   ├── game.js
 │   ├── history.js
 │   ├── storage.js
 │   ├── ui.js
 │   └── input.css
+│
 ├── dist/
 │   └── output.css
+│
 ├── package.json
 ├── package-lock.json
-├── .gitignore
 └── README.md
-```
-
-- `src/`: JavaScript modules and Tailwind CSS input file.
-- `dist/`: Generated CSS output.
-- `index.html`: Main HTML page.
-- `package.json`: Project dependencies and scripts.
 
 
 ## Getting Started
