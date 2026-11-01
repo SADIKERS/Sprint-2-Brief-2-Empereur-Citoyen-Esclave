@@ -1,0 +1,25 @@
+@import "tailwindcss";
+
+/*global background */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    background-image: url("/Sprint-2-Brief-2-Empereur-Citoyen-Esclave/img/Paysage\ médiéval\ sur\ parchemin\ \(1\).png");
+    background-size: cover;
+    background-position : center;
+    background-attachment: fixed;
+}
+@theme {
+    --font-heading: "Cinzel", serif;
+    --font-body: "Cormorant Garamond", serif;
+}
+/* medieval card background */
+.medieval-card {
+    background-image: url("/Sprint-2-Brief-2-Empereur-Citoyen-Esclave/img/Fond\ de\ parchemin\ médiéval\ orné.png");
+    background-size: 100% 100%;
+    background-position: center;
+    border-radius: 12px;
+    background-repeat: no-repeat;
+}

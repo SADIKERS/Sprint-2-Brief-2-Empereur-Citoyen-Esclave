@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empereur, cityen, Esclave | Joueurs </title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="./dist/output.css">
+</head>
+
+<body>
+    <header class="fixed top-0 left-0 z-50 w-full bg-transparent">
+        <div class="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
+
+            <!--logo-->
+            <a href="#" class="flex items-center gap-2 text-[#422B18]">
+                <span class="text-3xl sm:text-4xl"><img src="img/crown.png" alt="crown logo"
+                        class="h-8 w-8 object-contain sm:h-10 sm:w-10"></span>
+                <span class="font-heading text-base font-semibold sm:text-xl lg:text-2xl">
+                    Empereur, Citoyen, Esclave
+                </span>
+            </a>
+            <!-- desktop navigation-->
+            <nav class="hidden md:block ">
+                <ul class="flex items-center gap-5 font-heading text-base text-[#422B18] lg:gap-8 lg:text-lg">
+                    <li><a href="#" class="hover:text-[#8B2E22]">Accueil</a></li>
+                    <li><a href="#" class="hover:text-[#8B2E22]">Joueurs</a></li>
+                    <li><a href="#" class="hover:text-[#8B2E22]">Jeu</a></li>
+                    <li><a href="#" class="hover:text-[#8B2E22]">Historique</a></li>
+                </ul>
+            </nav>
+            <!-- mobile Menu -->
+            <details class="relative md:hidden">
+                <summary class="cursor-pointer list-none rounded-md border-[#8B623D] px-3 py-2 text-2xl text-[#422B18]">
+                    ☰
+                </summary>
+                <nav
+                    class="absolute right-0 top-full mt-3 w-48 rounded-lg border border-[#8B623D] bg-[#F1DFBD] p-3 shadow-lg">
+
+                    <ul class="flex flex-col gap-4 font-serif text-base text-[#422B18]">
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="#" class="font-semibold text-[#8B2E22]">Joueurs</a></li>
+                        <li><a href="#">Jeu</a></li>
+                        <li><a href="#">Historique</a></li>
+                    </ul>
+
+                </nav>
+            </details>
+
+        </div>
+        <div class="h-px mx-auto w-full bg-[#8B623D]"></div>
+    </header>
+    <main class="mx-auto max-w-6xl px-4 pb-12 pt-28 sm:px-6 sm:pt-20 lg:pt-28">
+        <!---Page introduction -->
+        <section class="mb-4 text-center">
+            <img src="/Sprint-2-Brief-2-Empereur-Citoyen-Esclave/img/crown.png" alt="couronne"
+                class="mx-auto mb-2 h-10 w-10 object-contain">
+            <h1 class="font-heading text-2xl font-bold text-[#422B18] sm:text-3xl lg:text-4xl">
+                Gestion des Joueurs
+            </h1>
+            <p class="mt-2 font-body text-lg text-[#543A25] sm:text-xl">
+                Créez votre profil, choisissez votre avatar et commencez l’aventure.
+            </p>
+            <!--- Decorative Divider-->
+            <div class="mx-auto  flex w-48 items-center gap-2 ">
+                <div class="mx-auto mt-5 flex w-48 items-center gap-2">
+                    <div class="h-px flex-1 bg-[#A77C4D]"></div>
+                    <span class="text-[#8B623D]">◇</span>
+                    <div class="h-px flex-1 bg-[#A77C4D]"></div>
+                </div>
+            </div>
+        </section>
+        <!-- player Management-->
+        <section class="grid grid-colos-1 gap-6 lg:grid-cols-5 lg:gap-6">
+            <!--new player-->
+            <div class="medieval-card min-w-0 rounded-xl p-4 lg:col-span-2">
+                <h2 class="font-heading text-xl font_semibold text-[#422B18] sm:text-2xl">
+                    Nouveau Joueur
+                </h2>
+                <div class="mt-3 h-px w-40 bg-[#A77C4D]"></div>
+
+                <!----Player Form -->
+                <form id="player-form" class="mt-6">
+
+                    <!---Nickname-->
+                    <label for="player-name" class="mb-2 block font-body text-lg font-semibold text-[#422B18]">
+                        Pseudo
+                    </label>
+                    <input type="text" id="player-name" name="player-name" placeholder="Entrez un pseudo..."
+                        class="w-full rounded-lg border border-[#B18A5B] bg-[#F5E6CA]/70 px-4 py-3 font-body text-base text-[#422B18] outline-none placeholder:text-[#806747] focus:border-[#8B2E22]">
+                    <p class="mt-2 font-body text-sm text-[#634a30]">
+                        3 à 12 caractères, lettres et chiffres uniquement.
+                    </p>
+                    <p id="form-error" class="mt-2 text-sm text-red-800"></p>
+                    <!---- Avatar Selection-->
+                    <fieldset class="mt-7">
+                        <legend class="mb-4 font-body text-lg font-semibold text-[#422B18]">
+                            choisir un avatar
+                        </legend>
+                        <div id="avatar-options" class="flex flex-wrap items-center justify-between gap-3">
+                            <button type="button" data-avatar="knight">
+                                <img src="./img/boy.png" alt="Knight"
+                                    class="h-12 w-12 rounded-full object-cover sm:h-16 sm:w-16">
+                            </button>
+
+                            <button type="button" data-avatar="king">
+                                <img src="./img/boy.png" alt="King"
+                                    class="h-12 w-12 rounded-full object-cover sm:h-16 sm:w-16">
+                            </button>
+
+                            <button type="button" data-avatar="assassin">
+                                <img src="./img/boy.png" alt="Assassin"
+                                    class="h-12 w-12 rounded-full object-cover sm:h-16 sm:w-16">
+                            </button>
+
+                            <button type="button" data-avatar="queen">
+                                <img src="./img/boy.png" alt="Queen"
+                                    class="h-12 w-12 rounded-full object-cover sm:h-16 sm:w-16">
+                            </button>
+                        </div>
+                    </fieldset>
+                    <!---add player button-->
+                    <button type="submit"
+                        class="mt-8 w-full rounded-lg bg-[#812D22] px-4 py-4 font-heading text-sm text-[#FFF0D8] transition-colors hover:bg-[#692219] sm:text-base">
+                        Ajouter le joueur
+                    </button>
+                </form>
+            </div>
+
+            <!----players list-->
+            <div class="medieval-card min-w-0 rounded-xl p-4 lg:col-span-3">
+
+                <h2 class="font-heading text-xl font-semibold text-[#422B18] sm:text-2xl">
+                    Vos Joueurs
+                </h2>
+
+                <div class="mt-3 h-px w-40 bg-[#A77C4D]"></div>
+
+                <div id="players-list" class="mt-5 flex flex-col gap-3">
+
+                    <!-- Active Player -->
+                    <article data-player-id="1"
+                        class="flex items-center gap-3 rounded-lg border-2 border-[#65602C] p-3 sm:gap-5 sm:p-4">
+
+                        <img src="./img/boy.png" alt="Avatar Amine"
+                            class="h-14 w-14 rounded-full object-cover sm:h-20 sm:w-20">
+
+                        <div class="min-w-0 flex-1">
+
+                            <h3 class="font-body text-lg font-semibold text-[#422B18] sm:text-2xl">
+                                Amine_07
+                            </h3>
+
+                            <p class="mt-1 flex items-center gap-2 font-body text-sm text-[#53602B] sm:text-lg">
+                                <span>♛</span>
+                                Joueur actif
+                            </p>
+
+                        </div>
+
+                        <div class="flex shrink-0 items-center gap-2 sm:gap-4">
+
+                            <button type="button" aria-label="Modifier Amine"
+                                class="rounded-lg border border-[#B18A5B] p-2 text-xl text-[#684B28] sm:p-3">
+                                ✎
+                            </button>
+
+                            <button type="button" aria-label="Supprimer Amine"
+                                class="rounded-lg border border-[#B66B4D] p-2 text-xl text-[#8B2E22] sm:p-3">
+                                ♜
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- Player 2 -->
+                    <article data-player-id="2"
+                        class="flex items-center gap-3 rounded-lg border border-[#C9A979]/60 p-2.5 sm:gap-4 sm:p-3">
+                        <img src="./img/boy.png" alt="Avatar Yassine"
+                            class="h-14 w-14 rounded-full object-cover sm:h-20 sm:w-20">
+
+                        <div class="min-w-0 flex-1">
+                            <h3 class="font-body text-lg font-semibold text-[#422B18] sm:text-2xl">
+                                Yassine
+                            </h3>
+                            <p class="mt-1 font-body text-sm text-[#8B2E22] sm:text-lg">
+                                Choisir ce joueur
+                            </p>
+                        </div>
+
+                        <div class="flex shrink-0 items-center gap-2 sm:gap-4">
+                            <button type="button" aria-label="Modifier Yassine"
+                                class="rounded-lg border border-[#B18A5B] p-2 text-xl text-[#684B28] sm:p-3">
+                                ✎
+                            </button>
+                            <button type="button" aria-label="Supprimer Sara"
+                                class="rounded-lg border border-[#B66B4D] p-2 text-xl text-[#8B2E22] sm:p-3">
+                                ♜
+                            </button>
+                        </div>
+
+                    </article>
+
+                    <!-- Player 3 -->
+                    <article data-player-id="3"
+                        class="flex items-center gap-3 rounded-lg border border-[#C9A979]/60 p-3 sm:gap-5 sm:p-4">
+
+                        <img src="./img/boy.png" alt="Avatar Sara"
+                            class="h-14 w-14 rounded-full object-cover sm:h-20 sm:w-20">
+
+                        <div class="min-w-0 flex-1">
+                            <h3 class="font-body text-lg font-semibold text-[#422B18] sm:text-2xl">
+                                Sara
+                            </h3>
+                            <p class="mt-1 font-body text-sm text-[#8B2E22] sm:text-lg">
+                                Choisir ce joueur
+                            </p>
+                        </div>
+
+                        <div class="flex shrink-0 items-center gap-2 sm:gap-4">
+                            <button type="button" aria-label="Modifier Sara"
+                                class="rounded-lg border border-[#B18A5B] p-2 text-xl text-[#684B28] sm:p-3">
+                                ✎
+                            </button>
+                            <button type="button" aria-label="Supprimer Sara"
+                                class="rounded-lg border border-[#B66B4D] p-2 text-xl text-[#8B2E22] sm:p-3">
+                                ♜
+                            </button>
+                        </div>
+
+                    </article>
+
+                    <!-- Player 4 -->
+                    <article data-player-id="4"
+                        class="flex items-center gap-3 rounded-lg border border-[#C9A979]/60 p-3 sm:gap-5 sm:p-4">
+
+                        <img src="./img/boy.png" alt="Avatar Nour"
+                            class="h-14 w-14 rounded-full object-cover sm:h-20 sm:w-20">
+
+                        <div class="min-w-0 flex-1">
+                            <h3 class="font-body text-lg font-semibold text-[#422B18] sm:text-2xl">
+                                Nour
+                            </h3>
+                            <p class="mt-1 font-body text-sm text-[#8B2E22] sm:text-lg">
+                                Choisir ce joueur
+                            </p>
+                        </div>
+
+                        <div class="flex shrink-0 items-center gap-2 sm:gap-4">
+                            <button type="button" aria-label="Modifier Nour"
+                                class="rounded-lg border border-[#B18A5B] p-2 text-xl text-[#684B28] sm:p-3">
+                                ✎
+                            </button>
+                            <button type="button" aria-label="Supprimer Nour"
+                                class="rounded-lg border border-[#B66B4D] p-2 text-xl text-[#8B2E22] sm:p-3">
+                                ♜
+                            </button>
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+<script type="module" src="./src/main.js"></script>
+</body>
+
+</html>
