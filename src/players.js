@@ -7,126 +7,172 @@ import {
 } from "./storage.js";
 
 
-// 1. Validate nickname
-export function validateNickname(nickname, players, currentPlayerId = null) {
-
-    const cleanNickname = nickname.trim();
+// Validate nickname
+function validateNickname(nickname, currentPlayerId = null) {
 
     const nicknameRegex = /^[A-Za-z0-9_]{3,15}$/;
 
-    if (!nicknameRegex.test(cleanNickname)) {
-        return "Le pseudo doit contenir entre 3 et 15 caractères.";
+    if (!nicknameRegex.test(nickname)) {
+        return {
+            success: false,
+            message: "Le pseudo doit contenir entre 3 et 15 caractères : lettres, chiffres et _."
+        };
     }
 
-    const alreadyExists = players.some(player =>
+    const players = getPlayers();
+
+    const nicknameExists = players.some(player =>
         player.id !== currentPlayerId &&
-        player.nickname.toLowerCase() === cleanNickname.toLowerCase()
+        player.nickname.toLowerCase() === nickname.toLowerCase()
     );
 
-    if (alreadyExists) {
-        return "Ce pseudo existe déjà.";
+    if (nicknameExists) {
+        return {
+            success: false,
+            message: "Ce pseudo existe déjà."
+        };
     }
 
-    return null;
+    return {
+        success: true
+    };
 }
 
 
-// 2. Add player
+// Add Player
 export function addPlayer(nickname, avatar) {
 
-    const players = getPlayers();
+    const validation = validateNickname(nickname);
 
-    const error = validateNickname(nickname, players);
-
-    if (error) {
-        return { success: false, message: error };
+    if (!validation.success) {
+        return validation;
     }
 
-    const player = {
+    if (!avatar) {
+        return {
+            success: false,
+            message: "Veuillez choisir un avatar."
+        };
+    }
+
+    const players = getPlayers();
+
+    const newPlayer = {
         id: `p_${Date.now()}`,
-        nickname: nickname.trim(),
+        nickname: nickname,
         avatar: avatar,
-        createdAt: new Date().toISOString().slice(0, 10)
+        createdAt: new Date().toISOString().split("T")[0]
     };
 
-    const updatedPlayers = [...players, player];
+    savePlayers([...players, newPlayer]);
 
-    savePlayers(updatedPlayers);
-
-    return { success: true, player };
+    return {
+        success: true,
+        player: newPlayer
+    };
 }
 
 
-// 3. Update player
+// Edit Player
 export function updatePlayer(playerId, nickname, avatar) {
+
+    const validation = validateNickname(nickname, playerId);
+
+    if (!validation.success) {
+        return validation;
+    }
+
+    if (!avatar) {
+        return {
+            success: false,
+            message: "Veuillez choisir un avatar."
+        };
+    }
 
     const players = getPlayers();
 
-    const playerExists = players.find(player => player.id === playerId);
+    const playerIndex = players.findIndex(player =>
+        player.id === playerId
+    );
 
-    if (!playerExists) {
-        return { success: false, message: "Joueur introuvable." };
+    if (playerIndex === -1) {
+        return {
+            success: false,
+            message: "Joueur introuvable."
+        };
     }
 
-    const error = validateNickname(nickname, players, playerId);
+    const updatedPlayer = {
+        ...players[playerIndex],
+        nickname: nickname,
+        avatar: avatar
+    };
 
-    if (error) {
-        return { success: false, message: error };
-    }
+    const updatedPlayers = [...players];
 
-    const updatedPlayers = players.map(player => {
-
-        if (player.id === playerId) {
-            return {
-                ...player,
-                nickname: nickname.trim(),
-                avatar: avatar
-            };
-        }
-
-        return player;
-    });
+    updatedPlayers[playerIndex] = updatedPlayer;
 
     savePlayers(updatedPlayers);
 
-    return { success: true };
+    return {
+        success: true,
+        player: updatedPlayer
+    };
 }
 
 
-// 4. Delete player
+// Delete Player
 export function deletePlayer(playerId) {
 
     const players = getPlayers();
 
-    const updatedPlayers = players.filter(player => player.id !== playerId);
+    const playerExists = players.some(player =>
+        player.id === playerId
+    );
 
-    if (players.length === updatedPlayers.length) {
-        return false;
+    if (!playerExists) {
+        return {
+            success: false,
+            message: "Joueur introuvable."
+        };
     }
+
+    const updatedPlayers = players.filter(player =>
+        player.id !== playerId
+    );
 
     savePlayers(updatedPlayers);
 
-    // If the deleted player was selected
     if (getSelectedPlayer() === playerId) {
-        localStorage.removeItem("selectedPlayer");
+        saveSelectedPlayer("");
     }
 
-    return true;
+    return {
+        success: true
+    };
 }
 
 
-// 5. Select player
+// Select Player
 export function selectPlayer(playerId) {
 
     const players = getPlayers();
 
-    const playerExists = players.some(player => player.id === playerId);
+    const player = players.find(player =>
+        player.id === playerId
+    );
 
-    if (!playerExists) {
-        return false;
+    if (!player) {
+        return {
+            success: false,
+            message: "Joueur introuvable."
+        };
     }
 
     saveSelectedPlayer(playerId);
 
-    return true;
+    return {
+        success: true,
+        player: player
+    };
 }
