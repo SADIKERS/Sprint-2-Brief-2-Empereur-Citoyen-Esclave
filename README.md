@@ -103,7 +103,7 @@ Each feature is developed on its own branch and submitted through a Pull Request
 
 ## Author
 
-**Name:** [Your Name]
+**Name:** abdelilah sadik
 
 ## License
 
