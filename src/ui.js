@@ -77,8 +77,8 @@ export function displayPlayers(players) {
                     data-action="delete"
                     aria-label="Supprimer ${player.nickname}"
                     class="rounded-lg border border-[#B66B4D] p-2 text-xl text-[#8B2E22] sm:p-3"
-                >
-                     <img src="./img/bin.png" alt="" class="h-5 w-5 object-contain sm:h-6 sm:w-6">
+                    >
+                    <img src="./img/bin.png" alt="" class="h-5 w-5 object-contain sm:h-6 sm:w-6">
                 </button>
 
             </div>
