@@ -1,62 +1,46 @@
 # Empereur, Citoyen, Esclave
 
-A web-based card game where players can create profiles, challenge the computer, and track their match history.
+> Un jeu de cartes stratégique où chaque choix peut changer le destin de la partie.
 
-## About the Project
+## 1. Présentation du projet
 
-**Empereur, Citoyen, Esclave** is a card game inspired by a simple hierarchy of power. Each player competes against the computer in a series of duels, using strategy and special cards to win points.
+**Empereur, Citoyen, Esclave** est un jeu de cartes développé dans le cadre du Sprint 2 de YouCode.
 
-The project focuses on building an interactive web application with player management, game logic, and match history.
+Le jeu oppose un joueur à l'ordinateur dans une série de 12 manches. Chaque joueur possède un camp composé de cinq cartes : quatre Citoyens et une carte spéciale (Empereur ou Esclave).
 
-## Live Demo
+Le principe repose sur trois relations :
 
-**Website:** [View the live application](YOUR_GITHUB_PAGES_URL)
+- **Empereur** bat **Citoyen**.
+- **Citoyen** bat **Esclave**.
+- **Esclave** bat **Empereur**.
 
-*The live link will be added after deployment.*
+Lorsque deux cartes identiques sont jouées, le duel se termine par une égalité et les joueurs continuent avec leurs cartes restantes.
 
-## Features
+Le jeu combine stratégie, hasard et prise de décision. Le joueur doit choisir ses cartes intelligemment pour remporter les manches et obtenir le meilleur score.
 
-### Player Profiles
-- Create a profile with a unique nickname and avatar.
-- Edit and delete player profiles.
-- Validate nicknames and prevent duplicates.
-- Select the active player before starting a game.
+## 2. Objectifs du projet
 
-### Card Game
-- Play against the computer in 12 rounds.
-- Choose cards and resolve duels according to the game rules.
-- Earn points based on the current camp.
-- Track the score and the progress of the game.
-- Replay after the game ends.
+- Créer une interface de jeu claire et responsive.
+- Permettre la gestion des joueurs.
+- Implémenter les règles du jeu Empereur, Citoyen, Esclave.
+- Gérer les manches, les duels et les scores.
+- Utiliser JavaScript pour rendre les pages interactives.
+- Utiliser LocalStorage pour conserver les données des joueurs.
 
-### Match History
-- Save completed games.
-- Search games by player nickname.
-- Filter matches by result and date.
-- Delete match records with confirmation.
+## 3. Technologies utilisées
 
-## Game Rules
+- **HTML5** : structure des pages.
+- **CSS3** : mise en forme et personnalisation de l'interface.
+- **Tailwind CSS** : création d'une interface responsive.
+- **JavaScript (ES6 Modules)** : logique du jeu et interactions.
+- **LocalStorage** : sauvegarde locale des données.
+- **Git & GitHub** : gestion de versions et collaboration.
+- **Google Fonts** : typographies Cormorant Garamond et Lora.
 
-The game has three card types:
-
-- **Empereur:** Defeats Citoyen.
-- **Citoyen:** Defeats Esclave.
-- **Esclave:** Defeats Empereur.
-
-A complete game contains 12 rounds. Winning in the Empereur camp gives 1 point, while winning in the Esclave camp gives 5 points.
-
-## Technologies
-
-- HTML5
-- Tailwind CSS
-- JavaScript (ES6+)
-- LocalStorage
-- Git and GitHub
-
-## 📁 Project Structure
+## 4. Structure du projet
 
 ```text
-empereur-citoyen-esclave/
+Empereur-Citoyen-Esclave/
 │
 ├── index.html
 ├── players.html
@@ -65,12 +49,14 @@ empereur-citoyen-esclave/
 │
 ├── src/
 │   ├── main.js
-│   ├── players.js
 │   ├── game.js
+│   ├── players.js
 │   ├── history.js
 │   ├── storage.js
-│   ├── ui.js
-│   └── input.css
+│   └── ui.js
+│
+├── img/
+│   └── Images et ressources graphiques
 │
 ├── dist/
 │   └── output.css
@@ -80,31 +66,92 @@ empereur-citoyen-esclave/
 └── README.md
 ```
 
+## 5. Rôle des fichiers
 
+### Pages HTML
 
-## Getting Started
+| Fichier | Description |
+|---|---|
+| `index.html` | Page d'accueil présentant le jeu et permettant d'accéder aux différentes sections. |
+| `players.html` | Page de gestion des joueurs : création, modification, suppression et sélection. |
+| `game.html` | Interface principale du jeu : affichage des cartes, des duels, des manches et des scores. |
+| `history.html` | Page destinée à consulter l'historique des parties. |
 
-1. Clone the repository.
-2. Open the project in Visual Studio Code.
-3. Configure the required dependencies and Tailwind CSS.
-4. Run the application using Live Server.
+### Fichiers JavaScript
 
-JavaScript modules require a local development server rather than opening the HTML file directly.
+| Fichier | Description |
+|---|---|
+| `main.js` | Point d'entrée JavaScript. Initialise les fonctionnalités de chaque page et gère les événements utilisateur. |
+| `game.js` | Contient les règles et la logique du jeu : création des cartes, comparaison des cartes, choix de l'ordinateur et gestion des manches. |
+| `players.js` | Gère les opérations liées aux joueurs : ajout, modification, suppression et sélection. |
+| `history.js` | Gère les fonctionnalités liées à l'historique des parties. |
+| `storage.js` | Centralise la lecture et l'enregistrement des données dans LocalStorage. |
+| `ui.js` | Regroupe les fonctions responsables de l'affichage dynamique des éléments de l'interface. |
 
-## Development Workflow
+### Autres dossiers et fichiers
 
-The project uses Git branches and Pull Requests to organize development.
+- `img/` : contient les illustrations, les cartes, les avatars et les ressources graphiques.
+- `dist/output.css` : fichier CSS généré à partir de Tailwind CSS.
+- `package.json` : contient les informations du projet et les dépendances nécessaires.
 
-- `main`: Stable version.
-- `develop`: Development and integration.
-- `feature/*`: Individual features.
+## 6. Installation et lancement du projet
 
-Each feature is developed on its own branch and submitted through a Pull Request for review.
+### Prérequis
 
-## Author
+- Un navigateur web moderne.
+- Visual Studio Code.
+- Node.js et npm.
+- L'extension Live Server de Visual Studio Code (recommandée).
 
-**Name:** abdelilah sadik
+### Étapes
 
-## License
+**1. Cloner le dépôt**
 
-This project was created for educational purposes as part of the YouCode training program.
+```bash
+git clone https://github.com/SADIKERS/Sprint-2-Brief-2-Empereur-Citoyen-Esclave.git
+```
+
+**2. Accéder au dossier du projet**
+
+```bash
+cd Sprint-2-Brief-2-Empereur-Citoyen-Esclave
+```
+
+**3. Installer les dépendances**
+
+```bash
+npm install
+```
+
+**4. Lancer le projet**
+
+Ouvrir le fichier `index.html` avec Live Server depuis Visual Studio Code.
+
+Le projet s'ouvre dans le navigateur et permet d'accéder aux différentes pages.
+
+## 7. Fonctionnalités du projet
+
+- Page d'accueil présentant l'univers du jeu.
+- Interface de gestion des joueurs.
+- Création et sélection d'un joueur.
+- Modification et suppression des joueurs.
+- Sauvegarde des informations des joueurs avec LocalStorage.
+- Interface de jeu avec affichage des cartes du joueur et de l'ordinateur.
+- Comparaison des cartes selon les règles du jeu.
+- Affichage du résultat de chaque duel.
+- Gestion des manches et des scores.
+
+## 8. Bonus réalisés
+
+Les bonus réalisés seront listés dans cette section après vérification des fonctionnalités effectivement terminées.
+
+**Aucun bonus supplémentaire n'est déclaré comme terminé dans cette version du README.**
+
+## 9. Liens du projet
+
+- **Dépôt GitHub :** https://github.com/SADIKERS/Sprint-2-Brief-2-Empereur-Citoyen-Esclave
+- **Site en ligne (GitHub Pages) :https://sadikers.github.io/Sprint-2-Brief-2-Empereur-Citoyen-Esclave/players.html
+
+---
+
+**Projet réalisé dans le cadre du Sprint 2 — YouCode.**
