@@ -8,14 +8,26 @@ import {
 
 import {
     createHand,
-    computerChooseCard,
-    removeCard
+    createManche,
+    createGameState,
+    getStartingCamp,
+    playDuel,
+    finishManche
 } from "./game.js";
 
+import {
+    getPlayers,
+    getSelectedPlayer
+} from "./storage.js";
 
-import { getPlayers } from "./storage.js";
+import {
+    displayPlayers,
+    displayPlayerHand,
+    displayOpponentHand,
+    displayBattleCards,
+    displayGameInfo
+} from "./ui.js";
 
-import { displayPlayers } from "./ui.js";
 
 // Players Page
 function initPlayersPage() {
@@ -225,8 +237,171 @@ if (document.querySelector("#player-form")) {
     initPlayersPage();
 }
 
+// ==============================
+// GAME PAGE
+// ==============================
 
-/* TEST GAME FUNCTIONS */
+function initGamePage() {
+
+    const gameBoard = document.querySelector("#game-board");
+
+    // Get selected player
+    const selectedPlayerId = getSelectedPlayer();
+
+    const players = getPlayers();
+
+    const player = players.find(player =>
+        player.id === selectedPlayerId
+    );
+
+    // Check if a player is selected
+    if (!player) {
+
+        alert("Veuillez choisir un joueur avant de commencer.");
+
+        window.location.href = "./players.html";
+
+        return;
+    }
 
 
+    // Create game
+    const game = createGameState();
 
+    let manche = createManche();
+
+    let playerHand = createHand(game.playerCamp);
+
+    let computerHand = createHand(
+        game.playerCamp === "empereur" ? "esclave" : "empereur"
+    );
+
+
+    // Display initial game
+    displayPlayerHand(playerHand);
+
+    displayOpponentHand(computerHand);
+
+    displayGameInfo(
+        player,
+        game,
+        getStartingCamp(manche)
+    );
+
+
+    // Player chooses a card
+    gameBoard.addEventListener("click", (event) => {
+
+        const cardButton = event.target.closest("[data-card-index]");
+
+        if (!cardButton) {
+            return;
+        }
+
+        if (manche.isFinished || game.isGameFinished) {
+            return;
+        }
+
+        const cardIndex = Number(cardButton.dataset.cardIndex);
+
+        const selectedCard = playerHand[cardIndex];
+
+        if (!selectedCard) {
+            return;
+        }
+
+
+        // Play duel
+        const result = playDuel(
+            manche,
+            playerHand,
+            computerHand,
+            selectedCard
+        );
+
+
+        // Update hands
+        playerHand = result.playerHand;
+        computerHand = result.computerHand;
+
+
+        // Display battle result
+        displayBattleCards(
+            result.playerCard,
+            result.computerCard,
+            result.result
+        );
+
+
+        // Display remaining cards
+        displayPlayerHand(playerHand);
+
+        displayOpponentHand(computerHand);
+
+
+        // Check if manche is finished
+        if (manche.isFinished) {
+
+            const finishedManche = finishManche(game, manche);
+
+
+            // Check if game is finished
+            if (game.isGameFinished) {
+
+                document.querySelector("#battle-result").textContent =
+                    game.playerScore > game.computerScore
+                        ? "Félicitations ! Vous avez gagné la partie."
+                        : game.playerScore < game.computerScore
+                            ? "L'ordinateur a gagné la partie."
+                            : "La partie est terminée : égalité !";
+
+                displayPlayerHand([]);
+                displayOpponentHand([]);
+
+                displayGameInfo(
+                    player,
+                    game,
+                    getStartingCamp(manche)
+                );
+
+                return;
+            }
+
+
+            // Prepare next manche
+            playerHand = finishedManche.playerHand;
+            computerHand = finishedManche.computerHand;
+            manche = finishedManche.newManche;
+
+
+            // Display new manche
+            displayPlayerHand(playerHand);
+
+            displayOpponentHand(computerHand);
+
+            displayGameInfo(
+                player,
+                game,
+                getStartingCamp(manche)
+            );
+
+            return;
+        }
+
+
+        // Update game information
+        displayGameInfo(
+            player,
+            game,
+            getStartingCamp(manche)
+        );
+
+    });
+
+}
+
+
+// Check Game Page
+if (document.querySelector("#game-board")) {
+    initGamePage();
+}
