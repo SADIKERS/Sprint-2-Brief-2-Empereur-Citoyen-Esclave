@@ -150,7 +150,7 @@ Les bonus réalisés seront listés dans cette section après vérification des 
 ## 9. Liens du projet
 
 - **Dépôt GitHub :** https://github.com/SADIKERS/Sprint-2-Brief-2-Empereur-Citoyen-Esclave
-- **Site en ligne (GitHub Pages) :https://sadikers.github.io/Sprint-2-Brief-2-Empereur-Citoyen-Esclave/players.html
+- **Site en ligne (GitHub Pages) :https://sadikers.github.io/Sprint-2-Brief-2-Empereur-Citoyen-Esclave
 
 ---
 
