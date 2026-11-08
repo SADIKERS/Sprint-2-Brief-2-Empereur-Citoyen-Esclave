@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empereur, cityen, Esclave | Accueil </title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Lora:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="stylesheet" href="./dist/output.css">
+</head>
+
+<body>
+    <header class="fixed top-0 left-0 z-50 w-full bg-transparent">
+        <div class="relative mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 sm:py-4">
+
+            <!--logo-->
+            <a href="#" class="flex items-center gap-2 text-[#422B18]">
+                <span class="text-3xl sm:text-4xl"><img src="img/crown.png" alt="crown logo"
+                        class="h-8 w-8 object-contain sm:h-10 sm:w-10"></span>
+                <span class="font-heading text-base font-semibold sm:text-xl lg:text-2xl">
+                    Empereur, Citoyen, Esclave
+                </span>
+            </a>
+            <!-- desktop navigation-->
+            <nav class="hidden md:block ">
+                <ul class="flex items-center gap-5 font-heading text-base text-[#422B18] lg:gap-8 lg:text-lg">
+                    <li><a href="index.html" class="hover:text-[#8B2E22] font-semibold text-[#8B2E22]">Accueil</a></li>
+                    <li><a href="players.html" class="hover:text-[#8B2E22]">Joueurs</a></li>
+                    <li><a href="game.html" class="hover:text-[#8B2E22]">Jeu</a></li>
+                    <li><a href="history.html" class="hover:text-[#8B2E22]">Historique</a></li>
+                </ul>
+            </nav>
+            <!-- mobile Menu -->
+            <details class="relative md:hidden">
+                <summary class="cursor-pointer list-none rounded-md border-[#8B623D] px-3 py-2 text-2xl text-[#422B18]">
+                    ☰
+                </summary>
+                <nav
+                    class="absolute right-0 top-full mt-3 w-48 rounded-lg border border-[#8B623D] bg-[#F1DFBD] p-3 shadow-lg">
+
+                    <ul class="flex flex-col gap-4 font-serif text-base text-[#422B18]">
+                        <li><a href="index.html" class="font-semibold text-[#8B2E22]">Accueil</a></li>
+                        <li><a href="players.html">Joueurs</a></li>
+                        <li><a href="game.html">Jeu</a></li>
+                        <li><a href="history.html">Historique</a></li>
+                    </ul>
+
+                </nav>
+            </details>
+
+        </div>
+        <div class="h-[1.5px] mx-auto w-full bg-[#8B623D]"></div>
+    </header>
+
+    <!-- Main -->
+    <main class="mx-auto flex min-h-screen max-w-7xl flex-col justify-center px-4 py-24 sm:px-6">
+        <!-- Hero Section -->
+        <section id="hero" class="flex flex-col items-center text-center">
+            <!-- Crown Decoration -->
+            <div class="mb-3 flex w-full items-center justify-center gap-4">
+                <span class="h-px w-16 bg-[#8B623D]/70 sm:w-24"></span>
+                <img src="./img/crown.png" alt="" class="h-10 w-10 object-contain sm:h-12 sm:w-12">
+                <span class="h-px w-16 bg-[#8B623D]/70 sm:w-24"></span>
+            </div>
+            <!-- Main Title -->
+            <h1
+                class="font-heading text-4xl font-bold uppercase leading-tight tracking-wide text-[#382313] sm:text-5xl md:text-6xl lg:text-7xl">
+                <span class="block">Empereur,</span>
+                <span class="block">Citoyen, Esclave</span>
+            </h1>
+            <!-- Title Ornament -->
+            <div class="my-3 flex items-center justify-center gap-2">
+                <span class="h-px w-20 bg-[#8B623D]/70 sm:w-28"></span>
+                <span class="font-heading text-xl text-[#79502D]">✧</span>
+                <span class="h-px w-20 bg-[#8B623D]/70 sm:w-28"></span>
+            </div>
+            <!-- Subtitle -->
+            <p class="font-body text-xl font-semibold text-[#422B18] sm:text-2xl md:text-3xl">Un jeu de cartes, trois
+                destins.</p>
+            <!-- Description -->
+            <p class="mt-1 max-w-2xl font-body text-base text-[#422B18] sm:text-lg md:text-xl">Stratégie, chance et ruse
+                pour prendre le pouvoir.</p>
+            <!-- CTA Button -->
+            <a href="game.html"
+                class="mt-5 inline-flex items-center justify-center rounded-2xl bg-[#8B3028] px-10 py-3 font-body text-lg font-semibold text-[#FFF5E6] shadow-md sm:px-14 sm:text-xl">Jouer
+                maintenant</a>
+        </section>
+        <!-- Features Section -->
+        <section id="features" class="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
+            <!-- Feature 1 -->
+            <article
+                class="flex flex-col items-center rounded-xl border border-[#B58A56]/80 bg-transparent px-5 py-4 text-center">
+                <img src="./img/crown.png" alt="" class="mb-2 h-12 w-12 object-contain">
+                <h2 class="font-heading text-lg font-semibold text-[#422B18] sm:text-xl">Des règles simples</h2>
+                <p class="mt-1 max-w-xs font-body text-base text-[#422B18]">Un gameplay accessible<br>et rapide à
+                    comprendre.</p>
+            </article>
+            <!-- Feature 2 -->
+            <article
+                class="flex flex-col items-center rounded-xl border border-[#B58A56]/80 bg-transparent px-5 py-4 text-center">
+                <img src="./img/battle.png" alt="" class="mb-2 h-12 w-12 object-contain">
+                <h2 class="font-heading text-lg font-semibold text-[#422B18] sm:text-xl">12 manches</h2>
+                <p class="mt-1 max-w-xs font-body text-base text-[#422B18]">Adaptez votre stratégie<br>et tentez de
+                    l’emporter.</p>
+            </article>
+            <!-- Feature 3 -->
+            <article
+                class="flex flex-col items-center rounded-xl border border-[#B58A56]/80 bg-transparent px-5 py-4 text-center sm:col-span-2 lg:col-span-1">
+                <img src="./img/history-book.png" alt="" class="mb-2 h-12 w-12 object-contain">
+                <h2 class="font-heading text-lg font-semibold text-[#422B18] sm:text-xl">Un historique complet</h2>
+                <p class="mt-1 max-w-xs font-body text-base text-[#422B18]">Suivez vos victoires<br>et vos défaites.</p>
+            </article>
+        </section>
+    </main>
+
+</body>
+
+</html>
