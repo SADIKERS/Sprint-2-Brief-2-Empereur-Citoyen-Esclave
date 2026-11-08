@@ -71,20 +71,20 @@
                     class="flex flex-1 items-center justify-center gap-2 rounded-xl border border-[#8B623D] bg-[#F1DFBD]/80 p-2 lg:flex-col lg:gap-2 lg:p-4">
 
                     <!-- Player Avatar -->
-                    <img src="./img/Portrait médiéval d’une femme au manteau vert.png" alt="Avatar du joueur"
+                    <img id= "player-avatar" src="./img/Portrait médiéval d’une femme au manteau vert.png" alt="Avatar du joueur"
                         class="h-10 w-10 rounded-full border-2 border-[#8B623D] object-cover sm:h-12 sm:w-12 lg:h-16 lg:w-16">
 
                     <!-- Player Details -->
                     <div class="min-w-0 text-center">
-                        <h3 class="truncate font-heading text-sm font-bold text-[#422B18] sm:text-base lg:text-xl">
+                        <h3 id="player-name-display" class="truncate font-heading text-sm font-bold text-[#422B18] sm:text-base lg:text-xl">
                             Joueur
                         </h3>
 
-                        <p class="font-body text-xs text-[#8B623D] sm:text-sm">
+                        <p id="player-camp-display" class="font-body text-xs text-[#8B623D] sm:text-sm">
                             Empereur
                         </p>
 
-                        <p class="mt-1 font-heading text-sm font-bold text-[#8B2E22] lg:text-lg">
+                        <p id="player-score-display" class="mt-1 font-heading text-sm font-bold text-[#8B2E22] lg:text-lg">
                             Score : 0
                         </p>
                     </div>
@@ -99,19 +99,19 @@
                         ROUND
                     </h3>
 
-                    <p class="font-heading text-xl font-bold text-[#8B2E22] sm:text-2xl lg:text-3xl">
+                    <p id="manche-number" class="font-heading text-xl font-bold text-[#8B2E22] sm:text-2xl lg:text-3xl">
                         1
                     </p>
 
                     <!-- Current Camp -->
                     <div class="h-px w-full bg-[#8B623D]/50"></div>
 
-                    <p class="font-body text-xs text-[#422B18] sm:text-sm">
-                        Camp actuel
+                    <p id="starting-camp" class="font-body text-xs text-[#422B18] sm:text-sm">
+                        Empereur commence
                     </p>
 
-                    <p class="font-heading text-sm font-bold text-[#422B18] sm:text-base">
-                        Citoyen
+                    <p id="current-camp" class="font-heading text-sm font-bold text-[#422B18] sm:text-base">
+                        Empereur
                     </p>
 
                 </section>
@@ -122,7 +122,7 @@
                     class="flex flex-1 items-center justify-center gap-2 rounded-xl border border-[#8B623D] bg-[#F1DFBD]/80 p-2 lg:flex-col lg:gap-2 lg:p-4">
 
                     <!-- Computer Avatar -->
-                    <img src="./img/Roi médiéval barbu au manteau rouge.png" alt="Avatar de l'ordinateur"
+                    <img id="computer-avatar" src="./img/Roi médiéval barbu au manteau rouge.png" alt="Avatar de l'ordinateur"
                         class="h-10 w-10 rounded-full border-2 border-[#8B623D] object-cover sm:h-12 sm:w-12 lg:h-16 lg:w-16">
 
                     <!-- Computer Details -->
@@ -132,11 +132,11 @@
                             Ordinateur
                         </h3>
 
-                        <p class="font-body text-xs text-[#8B623D] sm:text-sm">
+                        <p id="computer-camp-display" class="font-body text-xs text-[#8B623D] sm:text-sm">
                             Esclave
                         </p>
 
-                        <p class="mt-1 font-heading text-sm font-bold text-[#8B2E22] lg:text-lg">
+                        <p id="computer-score-display" class="mt-1 font-heading text-sm font-bold text-[#8B2E22] lg:text-lg">
                             Score : 0
                         </p>
 
@@ -152,32 +152,6 @@
                 <!-- Opponent Cards -->
                 <section id="opponent-cards"
                     class="medieval-card flex items-center justify-center gap-3 rounded-xl p-2 sm:gap-5 sm:p-3 lg:gap-4">
-
-                    <div class="flex flex-1 justify-center">
-                        <img src="./img/Dos de carte royal rouge et or (1).png" alt="Carte cachée de l'adversaire"
-                            class="w-full max-w-24 object-contain">
-                    </div>
-
-                    <div class="flex flex-1 justify-center">
-                        <img src="./img/Dos de carte royal rouge et or (1).png" alt="Carte cachée de l'adversaire"
-                            class="w-full max-w-24 object-contain">
-                    </div>
-
-                    <div class="flex flex-1 justify-center">
-                        <img src="./img/Dos de carte royal rouge et or (1).png" alt="Carte cachée de l'adversaire"
-                            class="w-full max-w-24 object-contain">
-                    </div>
-
-                    <div class="flex flex-1 justify-center">
-                        <img src="./img/Dos de carte royal rouge et or (1).png" alt="Carte cachée de l'adversaire"
-                            class="w-full max-w-24 object-contain">
-                    </div>
-
-                    <div class="flex flex-1 justify-center">
-                        <img src="./img/Dos de carte royal rouge et or (1).png" alt="Carte cachée de l'adversaire"
-                            class="w-full max-w-24 object-contain">
-                    </div>
-
                 </section>
 
                 <!-- Battle Area -->
@@ -187,10 +161,10 @@
 
                         <!-- Opponent Card -->
                         <div class="flex flex-col items-center gap-1">
-                            <img src="./img/Carte médiévale des citoyens artisans.png" alt="Carte Citoyen"
-                                class="w-24 object-contain sm:w-28">
+                            <img id="computer-card-image" src="./img/Carte médiévale des citoyens artisans.png" alt="Carte Citoyen"
+                                class="w-24 object-contain sm:w-28 hidden">
 
-                            <span class="font-heading text-base font-semibold text-[#422B18]">
+                            <span id="computer-card-name" class="font-heading text-base font-semibold text-[#422B18]">
                                 Citoyen
                             </span>
                         </div>
@@ -211,10 +185,10 @@
 
                         <!-- Player Card -->
                         <div class="flex flex-col items-center gap-1">
-                            <img src="./img/Carte de l’Empereur en style vintage.png" alt="Carte Empereur"
-                                class="w-24 object-contain sm:w-28">
+                            <img id="player-card-image" src="./img/Carte de l’Empereur en style vintage.png" alt="Carte Empereur"
+                                class="w-24 object-contain sm:w-28 hidden">
 
-                            <span class="font-heading text-base font-semibold text-[#422B18]">
+                            <span id="player-card-name" class="font-heading text-base font-semibold text-[#422B18]">
                                 Empereur
                             </span>
                         </div>
@@ -223,8 +197,8 @@
 
                     <!-- Battle Result -->
                     <div class="text-center">
-                        <p class="font-heading text-lg font-bold text-[#8B2E22] sm:text-xl">
-                            Résultat du combat
+                        <p id="battle-result" class="font-heading text-lg font-bold text-[#8B2E22] sm:text-xl">
+                            Choisissez une carte pour commencer
                         </p>
                     </div>
 
@@ -233,33 +207,6 @@
                 <!-- Player Cards -->
                 <section id="player-cards"
                     class=" medieval-card flex items-center justify-center gap-2 rounded-xl p-2 sm:gap-4 sm:p-3 lg:gap-4">
-
-                    <!-- Slave Card -->
-                    <div class="flex flex-1 justify-center">
-                        <img src="./img/Carte vintage « Esclave » aux chaînes.png" alt="Carte Esclave"
-                            class="w-full max-w-24 object-contain">
-                    </div>
-
-                    <!-- Citizen Cards -->
-                    <div class="flex flex-1 justify-center">
-                        <img src="img/Carte médiévale des citoyens artisans.png" alt="Carte Citoyen"
-                            class="w-full max-w-24 object-contain">
-                    </div>
-
-                    <div class="flex flex-1 justify-center">
-                        <img src="img/Carte médiévale des citoyens artisans.png" alt="Carte Citoyen"
-                            class="w-full max-w-24 object-contain">
-                    </div>
-
-                    <div class="flex flex-1 justify-center">
-                        <img src="img/Carte médiévale des citoyens artisans.png" alt="Carte Citoyen"
-                            class="w-full max-w-24 object-contain">
-                    </div>
-
-                    <div class="flex flex-1 justify-center">
-                        <img src="img/Carte médiévale des citoyens artisans.png" alt="Carte Citoyen"
-                            class="w-full max-w-24 object-contain">
-                    </div>
 
                 </section>
 
